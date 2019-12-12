@@ -1,0 +1,122 @@
+<div class="bg_color_2" *ngIf="!Added">
+  <div class="container margin_60_35">
+    <div id="register">
+      <h1>Creating Quiz</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <form [formGroup]="formQ" (ngSubmit)="OnSubmit()">
+            <div class="box_form">
+              <div class="form-group">
+                <label>Question</label>
+                <input formControlName="question" type="text" class="form-control" placeholder="question" required>
+              </div>
+              <div *ngIf="!formQ.controls['question']?.valid && formQ.controls['question']?.touched" class="alert alert-danger" >Question is required</div>
+
+              <div class="form-group">
+                <label>Score</label>
+                <input formControlName="score" type="number" class="form-control" placeholder="score" required>
+              </div>
+              <div *ngIf="!formQ.controls['score']?.valid && formQ.controls['score']?.touched" class="alert alert-danger" >Score is required</div>
+              <div class="form-group">
+                <label>Type</label>
+                <select formControlName="types" id="types" class="form-control" placeholder="type" >
+                  <option *ngFor="let type of types; let i = index" [value]="types[i].id">
+                    {{types[i].name}}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="!formQ.controls['type']?.valid && formQ.controls['type']?.touched" class="alert alert-danger" >Type is required</div>
+
+              <div class="form-group">
+                <label for="categorys">Category</label>
+                <select formControlName="categorys" id="categorys" class="form-control" placeholder="Category" >
+                  <option *ngFor="let category of categorys; let i = index" [value]="categorys[i].id">
+                    {{categorys[i].name}}
+                  </option>
+                </select>
+              </div>
+              <!--<div *ngIf="!formQ.controls['categorys']?.valid && formQ.controls['categorys']?.touched" class="alert alert-danger" >Category is required</div>
+-->
+              <div id="pass-info" class="clearfix"></div>
+
+              <div class="form-group text-center add_top_30">
+                <input class="btn_1" type="submit" value="Submit" [disabled]="!formQ.valid" >
+              </div>
+            </div>
+            <p class="text-center"><small>adding question for quiz.</small></p>
+          </form>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /register -->
+  </div>
+</div>
+
+
+<div *ngIf="Added">
+  <div id="breadcrumb">
+    <div class="container">
+      <ul>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /breadcrumb -->
+
+  <div class="container margin_120">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div id="confirm">
+          <div class="icon icon--order-success svg add_bottom_15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+              <g fill="none" stroke="#8EC343" stroke-width="2">
+                <circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+                <path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+              </g>
+            </svg>
+          </div>
+          <h2>Question Added</h2>
+
+          <div class="form-group text-center add_top_30">
+            <input type="submit" class="btn-primary" value="Add Answers" (click)="showed()">
+            <span *ngIf="show">
+            <div class="bg_color_2" >
+              <div class="container margin_60_35">
+                <div id="registerA">
+                  <h1>Creating Answer</h1>
+                  <div class="row justify-content-center">
+                    <div class="col-md-5">
+                      <form [formGroup]="formA" (ngSubmit)="OnSubmit2()">
+                        <div class="box_form">
+                          <div class="form-group">
+                            <label>Answer</label>
+                            <input formControlName="answer" type="text" class="form-control" placeholder="answer" required>
+                            <div style="padding-top:10px;">
+                            Correct?
+                            <input formControlName="correct" type="checkbox" class="form-control" [checked]="formA.controls['correct'].value" (change)="changeValue()">
+                          </div>
+                          </div>
+                          <div *ngIf="!formA.controls['answer']?.valid && formA.controls['answer']?.touched" class="alert alert-danger" >answer is required</div>
+
+                          <div id="pass-infoA" class="clearfix"></div>
+                          <div class="form-group text-center add_top_30">
+                            <input class="btn_1" type="submit" value="Submit" [disabled]="!formA.valid" >
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+

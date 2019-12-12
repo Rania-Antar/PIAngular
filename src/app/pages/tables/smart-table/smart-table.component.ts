@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
+import {InterviewService} from '../../../interview/interview.service';
 
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './smart-table.component.html',
   styleUrls: ['./smart-table.component.scss'],
 })
-export class SmartTableComponent {
+export class SmartTableComponent implements OnInit {
 
   settings = {
     add: {
@@ -30,36 +31,33 @@ export class SmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      Date: {
+        title: 'Date',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      Time: {
+        title: 'Time',
         type: 'string',
-      },
-      username: {
-        title: 'Username',
-        type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  source: Object = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private service: InterviewService) {
   }
-
+  ngOnInit() {
+  this.service.getInterviews().subscribe(
+    response => {
+      console.log('Found');
+      this.source = response;
+    console.log(response); },
+    error => {
+      console.log('NOT Found');
+      console.log(error);
+    },
+  );
+}
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();

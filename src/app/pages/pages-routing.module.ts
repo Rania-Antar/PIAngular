@@ -5,6 +5,17 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import {QqqComponent} from './qqq/qqq.component';
+import {ScoreComponent} from '../score/score.component';
+import {InterviewComponent} from '../interview/interview.component';
+import {CandidatureListComponent} from '../candidature-list/candidature-list.component';
+import {CandidateQuizComponent} from '../quiz/candidate-quiz/candidate-quiz.component';
+import {MainComponent} from '../main/main.component';
+import {QuizComponent} from '../quiz/quiz.component';
+import {UserComponent} from '../user/user.component';
+import {SignUpComponent} from '../user/sign-up/sign-up.component';
+import {SignInComponent} from '../user/sign-in/sign-in.component';
+import { AddComponent } from '../interview/add/add.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,6 +24,40 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: ECommerceComponent,
+    },
+    {
+      path: 'qqq',
+      component: QqqComponent,
+    },
+    {
+      path: 'signup', component: UserComponent,
+      children: [{ path: '', component: SignUpComponent }],
+    },
+    {
+      path: 'signin', component: UserComponent,
+      children: [{ path: '', component: SignInComponent }],
+    },
+    // {path: '', redirectTo: '/signup', pathMatch: 'full'},
+    {
+      path: 'main', component: MainComponent,
+    },
+    {
+      path: 'quiz', component: QuizComponent,
+    },
+    {
+      path: 'Candidatequiz', component: CandidateQuizComponent,
+    },
+    {
+      path: 'candidature', component: CandidatureListComponent,
+    },
+    {
+      path: 'quiz/score', component: ScoreComponent,
+    },
+    {
+      path: 'interview', component: InterviewComponent,
+    },
+    {
+      path: 'quiz/score/interview', component: AddComponent,
     },
     {
       path: 'iot-dashboard',

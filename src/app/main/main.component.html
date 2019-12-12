@@ -1,0 +1,73 @@
+<div class="container main" >
+
+  <div class="row">
+    <div class="col-4  ">
+      <div class="card" style="width: 18rem;" *ngIf="!finished">
+        <!--  <img class="card-img-top" src="https://cdn.cultofmac.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-27-at-10.23.34-AM-400x227.jpg" alt="Card image cap"> -->
+
+        <div class="card-body">
+          <div *ngIf="webCamError" class="text-center text-danger"> Webcam is not found </div>
+          <div id="my_camera" class="text-center"> Camera goes here</div>
+
+          <h5 class="card-title">Web Camera</h5>
+          <p class="card-text">This test requires you to enable your webcam for a VisioConference Interview.</p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+<!-- *************************************************************************************************************** -->
+
+ <!--   <main class="theia-exception">
+      <div class="container margin_60_35">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="strip_list fadeIn" *ngFor="let d of questions ; let j = index ">
+              <h3>{{d.question}}</h3>
+              <ul>
+                <div class="strip_list fadeIn" *ngFor="let a of d.answers; let i = index ">
+                  <li>{{a.answer}}</li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>-->
+
+<!-- *************************************************************************************************************** -->
+    <div class="col-8  ">
+      <div class="card shadow" >
+        <div class="card-header  bg-secondary text-white">
+          <h6> Passing Quiz Test ..</h6>
+        </div>
+        <div class="card-body question-header  question-text">
+          <h4> Questions : </h4>
+          <div class="strip_list fadeIn" *ngFor="let d of questions ; let j = index ">
+            <h3>{{d.question}}</h3>
+
+
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let a of d.answers ; let i=index;"
+              class="list-group-item choice"
+              [attr.id]="'choice'+i"
+              (click)="clickChoice($event)"
+              [class.choice-selected]="selectedIndex==i"
+          > <input type="checkbox" />{{a.answer}}</li>
+        </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+    <div class="col-8 text-right ">
+      <button (click)="onNextQuestion()"
+              type="button" class="btn btn-primary" routerLink="score" > Submit </button>
+    </div>
+</div>
+
+</div>

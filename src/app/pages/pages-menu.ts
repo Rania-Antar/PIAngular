@@ -2,6 +2,24 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'Candidature',
+    icon: 'grid-outline',
+    link: '/pages/candidature',
+    home: true,
+  },
+  {
+    title: 'Quiz',
+    icon: 'edit-2-outline',
+    link: '/pages/quiz',
+    home: true,
+  },
+  {
+    title: 'Interview',
+    icon: 'message-circle-outline',
+    link: '/pages/tables/smart-table',
+    home: true,
+  },
+  {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',

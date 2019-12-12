@@ -1,0 +1,29 @@
+<div>
+  <div class="middle">
+    <ngx-main
+      [questions]="questions"
+      [choices]="choices"
+      [answers]="answers"
+      [questionIndex]="questionIndex"
+      (clickAnswer)="clickAnswer($event)"
+      [selectedIndex]="selectedIndex"
+      [finished]="finished"
+      [totalQuestions]="totalQuestions"
+      *ngIf="!finished"
+    >
+    </ngx-main>
+
+    <!-- <ngx-score *ngIf="finished"
+                 [score]="score"
+                 [totalQuestions]="totalQuestions"
+    ></ngx-score> -->
+  </div>
+ <!-- <ngx-footer (nextQuestion)="nextQuestion($event)"
+              [totalQuestions]="totalQuestions"
+              [questionIndex]="questionIndex"
+              [finished]="finished"
+
+  ></ngx-footer> -->
+
+
+</div>

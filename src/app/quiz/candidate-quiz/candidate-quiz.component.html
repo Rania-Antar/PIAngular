@@ -1,0 +1,75 @@
+<div class="bg_color_2" *ngIf="!Added">
+  <div class="container margin_60_35">
+    <div id="register">
+      <h1>Creating Quiz</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-5">
+          <form [formGroup]="formQ" (ngSubmit)="OnSubmit()">
+            <div class="box_form">
+              <div class="form-group">
+                <label>Passing Date</label>
+                <input class="form-control" ngbDatepicker (click)="datePicker.toggle()" #datePicker="ngbDatepicker" formControlName="passingDate" placeholder="yyyy-mm-dd">
+                <!--<ngb-timepicker formControlName="passingDate" meridian="meridian"></ngb-timepicker>-->
+              </div>
+              <div *ngIf="!formQ.controls['passingDate']?.valid && formQ.controls['passingDate']?.touched" class="alert alert-danger" >Date is required</div>
+
+              <div class="form-group">
+                <label>Candidate</label>
+                <select formControlName="candidate" id="candidate" class="form-control" placeholder="Candidate" >
+                  <option *ngFor="let cand of candidate; let i = index" [value]="candidate[i].id">
+                    Candidate Id : {{candidate[i].id}}
+                  </option>
+                </select>
+              </div>
+              <div *ngIf="!formQ.controls['candidate']?.valid && formQ.controls['candidate']?.touched" class="alert alert-danger" >Select candidate</div>
+
+              <div class="form-group">
+                <label >Quiz</label>
+                <select formControlName="quizs" id="quizs" class="form-control" placeholder="Quiz" >
+                  <option *ngFor="let quiz of quizs; let i = index" [value]="quizs[i].id">
+                    {{quizs[i].name}}
+                  </option>
+                </select>
+              </div>
+              <!--<div *ngIf="!formQ.controls['categorys']?.valid && formQ.controls['categorys']?.touched" class="alert alert-danger" >Category is required</div>
+-->
+              <div id="pass-info" class="clearfix"></div>
+
+              <div class="form-group text-center add_top_30">
+                <input class="btn_1" type="submit" value="Submit" [disabled]="!formQ.valid" >
+              </div>
+            </div>
+            <p class="text-center"><small>adding a candidate quiz.</small></p>
+          </form>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /register -->
+  </div>
+</div>
+
+
+<div *ngIf="Added">
+  <!-- /breadcrumb -->
+  <div class="container margin_120">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div id="confirm">
+          <div class="icon icon--order-success svg add_bottom_15">
+            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+              <g fill="none" stroke="#8EC343" stroke-width="2">
+                <circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+                <path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+              </g>
+            </svg>
+          </div>
+          <h2>Candidate Quiz Added</h2>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+
