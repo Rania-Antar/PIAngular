@@ -1,5 +1,4 @@
 import { Option } from './option';
-import {CandidateAnswer} from './CandidateAnswer';
 import {Answer} from './Answer';
 import {Quiz} from './quiz';
 
@@ -11,13 +10,10 @@ export class Question {
   // candidateAnswer: CandidateAnswer;
   answers: Answer[];
   quiz: Quiz;
-  category: {
-    // id: number;
-    name: string;
-  };
-  //questions: Array<string>;
-  //choices: Array<any>;
-  //answers: Array<number>;
+  category: any;
+  // questions: Array<string>;
+  // choices: Array<any>;
+  // answers: Array<number>;
   id: number;
   name: string;
   questionTypeId: number;

@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-
-import { SmartTableData } from '../../../@core/data/smart-table';
 import {InterviewService} from '../../../interview/interview.service';
 
 @Component({
@@ -49,12 +47,13 @@ export class SmartTableComponent implements OnInit {
   ngOnInit() {
   this.service.getInterviews().subscribe(
     response => {
-      console.log('Found');
+      // console.log('Found');
       this.source = response;
-    console.log(response); },
+    // console.log(response);
+       },
     error => {
-      console.log('NOT Found');
-      console.log(error);
+      // console.log('NOT Found');
+      // console.log(error);
     },
   );
 }

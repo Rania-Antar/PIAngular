@@ -1,4 +1,3 @@
-import {Candidate} from './Candidate';
 import {Quiz} from './quiz';
 
 export class CandidateQuiz {

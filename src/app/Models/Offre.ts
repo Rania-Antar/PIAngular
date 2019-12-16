@@ -1,6 +1,6 @@
-import {Candidature} from "./Candidature";
-import {User} from "./User";
-import {Quiz} from "./quiz";
+import {Candidature} from './Candidature';
+import {User} from './User';
+import {Quiz} from './quiz';
 
 export class Offre {
   id: number ;

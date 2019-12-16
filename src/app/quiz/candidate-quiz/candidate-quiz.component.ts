@@ -43,17 +43,17 @@ export class CandidateQuizComponent implements OnInit {
     });
   }
   OnSubmit() {
-    let passingDate = this.formQ.get('passingDate').value.toString() ;
-    let quizs = this.formQ.get('quizs').value;
-    let candidate = this.formQ.get('candidate').value ;
-    console.log('this is ' + candidate) ;
+    // let passingDate = this.formQ.get('passingDate').value.toString() ;
+    const quizs = this.formQ.get('quizs').value;
+    const candidate = this.formQ.get('candidate').value ;
+    // console.log('this is ' + candidate) ;
 
-    this.restApi.addCandidateQuiz(new CandidateQuiz("2019-12-20", this.candidate, quizs)).subscribe(
+    this.restApi.addCandidateQuiz(new CandidateQuiz('2019-12-20', this.candidate, quizs)).subscribe(
       (data) => {
-        console.log(data) ;
+        // console.log(data) ;
         this.Added = true ;
       }, error => {
-        console.log(error);
+        // console.log(error);
       },
     );
   }

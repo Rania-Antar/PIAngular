@@ -28,8 +28,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(form: NgForm) {
-    let email = form.controls['email'].value;
-    let password = form.controls['password'].value;
+    const email = form.controls['email'].value;
+    const password = form.controls['password'].value;
     this.userService.login(email, password).subscribe(
       res => {
         this.showSucessMessage = true;

@@ -24,15 +24,15 @@ export class AddComponent implements OnInit {
   ngOnInit() {
   }
   OnSubmit() {
-    let date = this.formQ.get('date').value ;
-    let time = this.formQ.get('time').value;
+    // let date = this.formQ.get('date').value ;
+    const time = this.formQ.get('time').value;
 
-    this.restApi.addInterview(new Interview("2020-01-20", time)).subscribe(
+    this.restApi.addInterview(new Interview('2020-01-20', time)).subscribe(
       (data) => {
-        console.log(data) ;
+        // console.log(data) ;
         this.Added = true ;
       }, error => {
-        console.log(error);
+        // console.log(error);
       },
     );
   }

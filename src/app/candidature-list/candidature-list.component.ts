@@ -1,12 +1,10 @@
-
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Candidature} from '../models/Candidature';
 import {CandidatureService} from './candidature.service';
 import {ExcelService} from './excel.service';
-
-@Component({
-  selector: 'ngbd-modal-content',
+/*@Component({
+  selector: 'ngx-modal-content',
   template: `
     <div class="modal-header">
       <h4 class="modal-title">Candidature is Accepted</h4>
@@ -22,7 +20,8 @@ import {ExcelService} from './excel.service';
     </li>
   </ul>
         <div class="col-md-4 center-block">
-        <input type="button" class="btn btn-info" routerLink="Candidatequiz" value="Select Quiz" (click)="activeModal.close('Close click')">
+        <input type="button" class="btn btn-info" routerLink="Candidatequiz"
+        value="Select Quiz" (click)="activeModal.close('Close click')">
         </div>
 </div>
     </div>
@@ -35,7 +34,7 @@ export class NgbdModalContent {
   @Input() candidate;
 
   constructor(public activeModal: NgbActiveModal) {}
-}
+} */
 @Component({
   selector: 'ngx-candidature-list',
   templateUrl: './candidature-list.component.html',
@@ -82,7 +81,7 @@ export class CandidatureListComponent implements OnInit, OnChanges {
 
   Cancel(dem) {
     this.demande = dem;
-    console.log('selected is ' + this.demande.id);
+    // console.log('selected is ' + this.demande.id);
     this.service.deleteDemande( this.demande ).subscribe(
       (data) => {
         if (data) {
@@ -99,11 +98,11 @@ export class CandidatureListComponent implements OnInit, OnChanges {
       (data) => {
               // this.accepted = true ;
               this.loading = false;
-              console.log(data);
+              // console.log(data);
               this.addedCandidate = data;
               this.listDemandes.splice(this.listDemandes.indexOf(this.demande), 1);
-              const modalRef = this.modalService.open(NgbdModalContent, {size: 'lg'});
-              modalRef.componentInstance.doctor = this.addedCandidate;
+              // const modalRef = this.modalService.open(NgbdModalContent, {size: 'lg'});
+             //  modalRef.componentInstance.doctor = this.addedCandidate;
       }
       , (error) => {
         this.loading = false;
@@ -112,7 +111,7 @@ export class CandidatureListComponent implements OnInit, OnChanges {
   }
 
   exportToExcel() {
-    console.log('exported');
+   // console.log('exported');
     this.excel.exportToExcel();
   }
 }

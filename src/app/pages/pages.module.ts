@@ -17,7 +17,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { QqqComponent } from './qqq/qqq.component';
 import { UserComponent } from '../user/user.component';
-import {CandidatureListComponent, NgbdModalContent} from '../candidature-list/candidature-list.component';
+import {CandidatureListComponent} from '../candidature-list/candidature-list.component';
 import { QuizComponent } from '../quiz/quiz.component';
 import { ScoreComponent } from '../score/score.component';
 import { InterviewComponent } from '../interview/interview.component';
@@ -33,9 +33,6 @@ import { CandidateQuizComponent } from '../quiz/candidate-quiz/candidate-quiz.co
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbDatepickerModule, NgbModule, NgbTimepickerModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CoreModule} from '../@core/core.module';
 import {AddComponent} from '../interview/add/add.component';
 
 @NgModule({
@@ -46,12 +43,8 @@ import {AddComponent} from '../interview/add/add.component';
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
-    // BrowserModule,
-    // BrowserAnimationsModule,
     HttpClientModule,
-
     ThemeModule.forRoot(),
-
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
@@ -61,7 +54,6 @@ import {AddComponent} from '../interview/add/add.component';
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
-    // CoreModule.forRoot(),
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
@@ -72,11 +64,11 @@ import {AddComponent} from '../interview/add/add.component';
     PagesComponent,
     QqqComponent, UserComponent, CandidatureListComponent, QuizComponent, ScoreComponent,
     InterviewComponent, SignUpComponent, SignInComponent, MainComponent, QuestionAnswerComponent,
-    FooterComponent, HeaderComponent, LoadingComponent, NgbdModalContent, CandidateQuizComponent, AddComponent,
+    FooterComponent, HeaderComponent, LoadingComponent, CandidateQuizComponent, AddComponent,
   ],
   providers: [ExcelService],
   // bootstrap: [AppComponent],
-  entryComponents: [NgbdModalContent],
+  // entryComponents: [NgbdModalContent],
 })
 export class PagesModule {
 }

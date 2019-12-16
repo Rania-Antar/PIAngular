@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {CandidatureService} from './candidature.service';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
-import * as ExcelProper from 'ExcelJS';
-import * as FileSaver from 'file-saver';
 @Injectable({
   providedIn: 'root',
 })

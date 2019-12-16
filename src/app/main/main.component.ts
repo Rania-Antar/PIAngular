@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@
 import * as Webcam from 'webcamjs';
 import {Question} from '../Models';
 import {Answer} from '../Models/Answer';
-import {QuestionAnswerService} from "../question-answer/question-answer.service";
+import {QuestionAnswerService} from '../question-answer/question-answer.service';
 @Component({
   selector: 'ngx-main',
   templateUrl: './main.component.html',
@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
       this.webCamError = true;
     } );
 
-    let w = Webcam.attach( '#my_camera' );
+    const w = Webcam.attach( '#my_camera' );
 
     if (w) {
       // alert("ok");
@@ -60,9 +60,8 @@ export class MainComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    this.enableCam();
-  }
+  // ngAfterViewInit() {
+    // this.enableCam(); }
 
   clickChoice(e) {
     // alert(e.target.id);

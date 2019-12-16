@@ -24,8 +24,6 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {QuizComponent} from './pages/quiz/quiz.component';
-import {TablesRoutingModule} from './pages/tables/tables-routing.module';
-import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 
 @NgModule({

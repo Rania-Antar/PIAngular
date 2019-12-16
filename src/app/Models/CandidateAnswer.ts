@@ -1,12 +1,6 @@
 export class CandidateAnswer {
   id: number;
-  candidateQuiz: {
-
-  }
-  questions: {
-
-  }
-  answers: {
-
-  }
+  candidateQuiz: any;
+  questions: any;
+  answers: any ;
 }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {QuizService} from "../quiz/quiz.service";
+import {QuizService} from '../quiz/quiz.service';
 
 @Component({
   selector: 'ngx-score',

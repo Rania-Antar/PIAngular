@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {QuestionAnswerService} from '../question-answer/question-answer.service';
 import {Question} from '../Models';
 import {Answer} from '../Models/Answer';
@@ -79,11 +78,11 @@ export class QuizComponent implements OnInit {
   clickAnswer(e) {
     // alert(e.target.id)
     this.answered = true;
-    this.selectedIndex = parseInt(e.target.id.replace("choice",""));
+    // this.selectedIndex = parseInt(e.target.id.replace("choice",""));
   }
 
   checkAnswer( selectedIndex ) {
-    if (this.answers[this.questionIndex] == selectedIndex) {
+    if (this.answers[this.questionIndex] === selectedIndex) {
       // Answer is correct
       this.score++;
     }

@@ -56,18 +56,18 @@ export class QuestionAnswerComponent implements OnInit {
     });
   }
   OnSubmit() {
-    let question = this.formQ.get('question').value ;
-    let score = this.formQ.get('score').value;
-    let type = this.formQ.get('types').value ;
-    let category = this.formQ.get('categorys').value ;
-    console.log('this is ' + question) ;
+    const question = this.formQ.get('question').value ;
+    const score = this.formQ.get('score').value;
+    const type = this.formQ.get('types').value ;
+    const category = this.formQ.get('categorys').value ;
+    // console.log('this is ' + question) ;
 
     this.restApi.addQuestion(new Question(question, score, type, category)).subscribe(
       (data) => {
-        console.log(data) ;
+        // console.log(data) ;
         this.Added = true ;
       }, error => {
-        console.log(error);
+        // console.log(error);
       },
     );
   }
@@ -75,21 +75,21 @@ export class QuestionAnswerComponent implements OnInit {
     this.show = true;
   }
   changeValue() {
-    console.log(this.formA.controls['correct'].value ? 'oui' : 'nom');
+   // console.log(this.formA.controls['correct'].value ? 'oui' : 'nom');
     this.formA.controls['correct'] = new FormControl(this.formA.controls['correct'].value);
   }
   OnSubmit2() {
-    let answer = this.formA.get('answer').value ;
-    let correct = this.formA.get('correct').value;
-    let q = this.formQ.value;
-    console.log('this answer ' + answer) ;
+    const answer = this.formA.get('answer').value ;
+    const correct = this.formA.get('correct').value;
+    const q = this.formQ.value;
+   // console.log('this answer ' + answer) ;
 
     this.restApi.addAnswer(new Answer(answer , correct, q)).subscribe(
       (data) => {
-        console.log(data) ;
+       // console.log(data) ;
         this.Added = true ;
       }, error => {
-        console.log(error);
+       // console.log(error);
       },
     );
   }
